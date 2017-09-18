@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Agentkma/SoftSpot_back#readme",
   "dependencies": {
     "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
     "express": "^4.15.4",
     "knex": "^0.13.0",
     "pg": "^7.3.0"
