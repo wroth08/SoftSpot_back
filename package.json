@@ -2,11 +2,11 @@
   "name": "SoftSpot_back",
   "version": "1.0.0",
   "description": "Back-end",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Agentkma/SoftSpot_back.git"

@@ -4,7 +4,7 @@ var router = express.Router()
 
 // Get all users
 router.get('/', function (req, res) {
-  knex.select('username.name', 'username.username', 'username.bio')
+  knex.select('username.name', 'username.bio')
     .from('username')
     .then( data => {
       res.json(data)
@@ -13,36 +13,24 @@ router.get('/', function (req, res) {
 
 // Get user by id, with that user's skills and reviews
 router.get('/:id', function (req, res) {
-  let id = req.params.id
-  knex.select('username.name', 'username.username', 'username.img', 'username.bio', 'skill.name', 'review.title', 'review.body', 'review.rating', 'tech.name', 'endorse.rating')
+  let userId = req.params.id
+  knex.select('username.name', 'username.img', 'username.bio')
     .from('username')
-    .join('skill_user', function () {
-      this.on('username.id', 'skill_user.user_id')
-    })
-    .join('skill', function () {
-      this.on('skill_user.skill_id', 'skill.id')
-    })
-    .join('review', function () {
-      this.on('username.id', 'review.user_id')
-    })
-    .join('endorse', function () {
-      this.on('skill_user.id', 'endorse.skil_user_id')
-    })
-    .join('tech', function () {
-      this.on('review.tech_id', 'tech.id')
-    })
-    .then( (data) => {
+    .where('username.id', userId)
+    .then( function (data) {
       res.json(data)
     })
 })
 
+
 // Get all reviews by a particular user
 router.get('/:id/reviews', function (req, res) {
-  let id = req.params.id
-  knex.select('review.id', 'review.title', 'review.body', 'review.rating', 'review.user_id', 'review.tech_id')
+  let userId = req.params.id
+  knex.select('review.id', 'review.title', 'review.body', 'review.rating', 'review.username_id', 'review.tech_id')
     .from('review')
-    .join('user', function () {
-      this.on('user.id', 'review.user_id')
+    .where('username.id', userId)
+    .join('username', function () {
+      this.on('username.id', 'review.username_id')
     })
     .then( function (data) {
       res.json(data)
@@ -51,11 +39,12 @@ router.get('/:id/reviews', function (req, res) {
 
 // Get all skills of a particular user
 router.get('/:id/skills', function (req, res) {
-  let id = req.params.id
+  let userId = req.params.id
   knex.select('skill.id', 'skill.name', )
-    .from('skill')
+    .from('username')
+    .where('username.id', userId)
     .join('skill_user', function () {
-      this.on('user.id', 'skill_user.user_id')
+      this.on('username.id', 'skill_user.username_id')
     })
     .join('skill', function () {
       this.on('skill_user.skill_id', 'skill.id')
@@ -66,5 +55,4 @@ router.get('/:id/skills', function (req, res) {
 })
 
 
-
-module.exports = ('router')
+module.exports = router
