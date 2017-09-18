@@ -20,7 +20,6 @@ router.get('/:id', function (req, res) {
     })
 })
 
-router.get('/')
 
 
 module.exports = ('router')
