@@ -80,6 +80,16 @@ router.delete('/:id', function (req, res) {
     )
 })
 
-
+router.put('/:id', function (req, res) {
+  let userId = req.params.id
+  var info = req.body
+  knex('username')
+    .where('username.id', userId)
+    .update(info)
+    .returning('*')
+      .then( () => {
+        res.json(info);
+      })
+})
 
 module.exports = router
