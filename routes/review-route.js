@@ -3,8 +3,14 @@ var knex = require('../knex')
 var router = express.Router()
 
 router.get('/', function (req, res) {
-  knex.select('*')
+  knex.select('review.title', 'review.body', 'review.rating', 'tech.name as tech_name', 'tech.url', 'username.name as user_name')
     .from('review')
+    .join('username', function () {
+      this.on('username.id', 'review.username_id')
+    })
+    .join('tech', function () {
+      this.on('review.tech_id', 'tech.id')
+    })
     .then( data => {
       res.json(data)
     })
