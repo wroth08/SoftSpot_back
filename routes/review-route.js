@@ -34,6 +34,7 @@ router.delete('/:id', function (req, res) {
   let reviewId = req.params.id
   knex('review')
     .where('review.id', reviewId)
+    .del()
     .then( () => {
       res.send('l;alsdkfja;kdjla;j')
     })

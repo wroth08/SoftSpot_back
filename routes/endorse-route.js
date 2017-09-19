@@ -12,4 +12,16 @@ router.post('/', function (req, res) {
       })
 })
 
+router.delete('/:id', function (req, res) {
+  let endorsementId = req.params.id
+  knex('endorse')
+    .where('endorse.id', endorsementId)
+    .del()
+    .then( () => {
+      res.send(
+        'cool'
+      )
+    })
+})
+
 module.exports = router
