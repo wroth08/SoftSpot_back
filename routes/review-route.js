@@ -20,5 +20,15 @@ router.get('/:id', function (req, res) {
     })
 })
 
+router.post('/', function (req, res) {
+  var row = req.body
+  knex('review')
+    .insert(row)
+    .returning('*')
+      .then( () => {
+        res.json(row);
+      })
+})
+
 
 module.exports = router

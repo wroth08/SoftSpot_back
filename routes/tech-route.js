@@ -22,6 +22,7 @@ router.get('/:id', function (req, res) {
 
 router.post('/', function (req, res) {
   var row = req.body
+  console.log(row)
   knex('tech')
     .insert(row)
     .returning('*')
