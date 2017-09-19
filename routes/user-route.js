@@ -40,7 +40,7 @@ router.get('/:id/reviews', function (req, res) {
 // Get all skills of a particular user
 router.get('/:id/skills', function (req, res) {
   let userId = req.params.id
-  knex.select('skill.id', 'skill.name', )
+  knex.select('skill.id', 'skill.name')
     .from('username')
     .where('username.id', userId)
     .join('skill_user', function () {
