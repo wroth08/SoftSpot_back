@@ -54,6 +54,15 @@ router.get('/:id/skills', function (req, res) {
     })
 })
 
+router.delete('/:id', function (req, res) {
+  let userId = req.params.id
+  knex('username')
+    .where('username.id', userId)
+    .del()
+    .then( () => {
+      res.send('success')
+    })
+})
 
 
 

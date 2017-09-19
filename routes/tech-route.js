@@ -22,13 +22,27 @@ router.get('/:id', function (req, res) {
 
 router.post('/', function (req, res) {
   var row = req.body
-  console.log(row)
   knex('tech')
     .insert(row)
     .returning('*')
       .then( () => {
         res.json(row);
       })
+})
+
+router.delete('/:id', function (req, res) {
+  let techId = req.params.id
+  knex('review')
+    .where('review.tech_id', techId)
+    .del()
+    .then(
+      knex('tech')
+        .where('tech.id', techId)
+        .del()
+        .then( () => {
+          res.send('woop woop')
+        })
+    )
 })
 
 
