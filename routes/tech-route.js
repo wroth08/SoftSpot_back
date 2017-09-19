@@ -49,5 +49,17 @@ router.delete('/:id', function (req, res) {
     )
 })
 
+router.put('/:id', function (req, res) {
+  let techId = req.params.id
+  var info = req.body
+  knex('tech')
+    .where('tech.id', techId)
+    .update(info)
+    .returning('*')
+      .then( () => {
+        res.json(info);
+      })
+})
+
 
 module.exports = router
