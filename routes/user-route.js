@@ -54,6 +54,7 @@ router.get('/:id/skills', function (req, res) {
     })
 })
 
+// Delete a user
 router.delete('/:id', function (req, res) {
   let userId = req.params.id
   knex('review')

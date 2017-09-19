@@ -30,5 +30,14 @@ router.post('/', function (req, res) {
       })
 })
 
+router.delete('/:id', function (req, res) {
+  let reviewId = req.params.id
+  knex('review')
+    .where('review.id', reviewId)
+    .then( () => {
+      res.send('l;alsdkfja;kdjla;j')
+    })
+})
+
 
 module.exports = router
