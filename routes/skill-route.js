@@ -31,18 +31,27 @@ router.post('/', function (req, res) {
 })
 
 // Delete skill by id
-// router.delete('/:id', function (req, res) {
-//   let skillId = req.params.id
-//   knex('skill_user')
-//     .from('skill_user')
-//     .where('skill_user.skill_id', skillId)
-//     .join('skill_user', function () {
-//       this.on('skill_user.id', 'endorse.skill_user_id')
-//     })
-//     .del()
-//     .then( () => {
-//       res.send('oie')
-//     })
-// })
+router.delete('/:skillid', function (req, res) {
+  let skillId = req.params.skillid
+  knex('skill')
+    .where('skill.id', skillId)
+    .del()
+    .then( () => {
+      res.send('toooooooo ezzzzzz')
+    })
+})
+
+// Delete skill_user by id
+router.delete('/:skillid/:userid', function (req, res) {
+  let skillId = req.params.skillid
+  let userId = req.params.userid
+  knex('skill_user')
+    .where('skill_user.username_id', userId)
+    .andWhere('skill_user.skill_id', skillId)
+    .del()
+    .then( () => {
+      res.send('toooooooo ezzzzzz')
+    })
+})
 
 module.exports = router
