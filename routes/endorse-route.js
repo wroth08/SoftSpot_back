@@ -24,4 +24,16 @@ router.delete('/:id', function (req, res) {
     })
 })
 
+router.put('/:id', function (req, res) {
+  let endorsementId = req.params.id
+  var info = req.body
+  knex('endorse')
+    .where('endorse.id', endorsementId)
+    .update(info)
+    .returning('*')
+      .then( () => {
+        res.json(info);
+      })
+})
+
 module.exports = router
