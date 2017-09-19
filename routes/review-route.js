@@ -20,5 +20,37 @@ router.get('/:id', function (req, res) {
     })
 })
 
+router.post('/', function (req, res) {
+  var row = req.body
+  knex('review')
+    .insert(row)
+    .returning('*')
+      .then( () => {
+        res.json(row);
+      })
+})
+
+router.delete('/:id', function (req, res) {
+  let reviewId = req.params.id
+  knex('review')
+    .where('review.id', reviewId)
+    .del()
+    .then( () => {
+      res.send('l;alsdkfja;kdjla;j')
+    })
+})
+
+router.put('/:id', function (req, res) {
+  let reviewId = req.params.id
+  var info = req.body
+  knex('review')
+    .where('review.id', reviewId)
+    .update(info)
+    .returning('*')
+      .then( () => {
+        res.json(info);
+      })
+})
+
 
 module.exports = router

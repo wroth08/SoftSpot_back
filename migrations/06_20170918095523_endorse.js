@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
   table.increments('id');
   table.integer('rating');
   table.integer('username_id').references('username.id');
-  table.integer('skill_user_id').references('skill_user.id');
+  table.integer('skill_user_id').references('skill_user.id').onDelete('CASCADE');
 });
 };
 

@@ -54,5 +54,42 @@ router.get('/:id/skills', function (req, res) {
     })
 })
 
+// Delete a user
+router.delete('/:id', function (req, res) {
+  let userId = req.params.id
+  knex('review')
+    .where('review.username_id', userId)
+    .del()
+    .then(
+      knex('endorse')
+        .where('endorse.username_id', userId)
+        .del()
+        .then(
+          knex('skill_user')
+            .where('skill_user.username_id', userId)
+            .del()
+            .then(
+              knex('username')
+                .where('username.id', userId)
+                .del()
+                .then( () => {
+                  res.send('ayyyyyyyy')
+                })
+            )
+        )
+    )
+})
+
+router.put('/:id', function (req, res) {
+  let userId = req.params.id
+  var info = req.body
+  knex('username')
+    .where('username.id', userId)
+    .update(info)
+    .returning('*')
+      .then( () => {
+        res.json(info);
+      })
+})
 
 module.exports = router
