@@ -11,7 +11,11 @@ var skillRoute = require('./routes/skill-route.js')
 var techRoute = require('./routes/tech-route.js')
 var endorseRoute = require('./routes/endorse-route.js')
 
-app.use(cors())
+app.use(cors({
+    origin: function (origin, callback) {
+        callback(null,true);
+    }
+}));
 app.use(bodyParser())
 
 app.use('/users', userRoute)
