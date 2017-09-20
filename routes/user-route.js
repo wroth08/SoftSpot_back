@@ -92,4 +92,14 @@ router.put('/:id', function (req, res) {
       })
 })
 
+router.post('/', function (req, res) {
+  let userRow = req.body
+  knex('user')
+    .insert(userRow)
+    .returning('*')
+    .then( () => {
+      res.json('user')
+    })
+})
+
 module.exports = router

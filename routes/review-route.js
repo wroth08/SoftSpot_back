@@ -20,7 +20,7 @@ router.get('/:id', function (req, res) {
   let id = req.params.id
   knex.select('*')
     .from('review')
-    .where('id', id)
+    .where('tech_id', id)
     .then( data => {
       res.json(data)
     })
