@@ -12,8 +12,8 @@ router.get('/', function (req, res) {
 })
 
 // Get technology by id
-router.get('/:id', function (req, res) {
-  let id = req.params.id
+router.get('/byId', function (req, res) {
+  let id = req.query.id
   knex.select('name', 'description', 'url', 'category')
     .from('tech')
     .where('id', id)

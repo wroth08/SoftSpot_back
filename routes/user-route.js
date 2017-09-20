@@ -12,8 +12,8 @@ router.get('/', function (req, res) {
 })
 
 // Get user by id, with that user's skills and reviews
-router.get('/:id', function (req, res) {
-  let userId = req.params.id
+router.get('/byId', function (req, res) {
+  let userId = req.query.id
   knex.select('username.name', 'username.img', 'username.bio')
     .from('username')
     .where('username.id', userId)
