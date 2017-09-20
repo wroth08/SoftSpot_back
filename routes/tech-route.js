@@ -4,7 +4,7 @@ var router = express.Router()
 
 // Get all technologies
 router.get('/', function (req, res) {
-  knex.select('name', 'description', 'url', 'category')
+  knex.select('id', 'name', 'description', 'url', 'category')
     .from('tech')
     .then( function (data) {
       res.json(data)
