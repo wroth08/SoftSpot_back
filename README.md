@@ -4,7 +4,7 @@ Software. Insight. Delivered.
 ## Getting Started
 A decoupled full-stack CRUD App that stores reviews about technologies and software.
 
-To be used with [SoftSpot_back][https://github.com/wroth08/SoftSpot_back]
+To be used with [SoftSpot_front][https://github.com/wroth08/SoftSpot_front]
 
 ## Built With
 
