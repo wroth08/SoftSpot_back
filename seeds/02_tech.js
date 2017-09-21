@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+module.exports = {seed: function(knex, Promise) {
   return knex('tech').del()
     .then(function () {
       // Inserts seed entries
@@ -8,27 +8,32 @@ exports.seed = function(knex, Promise) {
     description: "Text Editor",
     url: "www.atom.io",
     category: "TE"
-  }, {
+  },
+  {
     name: "VS Code",
     description: "Text Editor",
     url: "code.visualstudio.com",
     category: "TE"
-  }, {
+  },
+  {
     name: "Postman",
     description: "API Development",
     url: "www.getpostman.com",
     category: "Software"
-  }, {
+  },
+  {
     name: "JavaScript",
     description: "Programming Language",
     url: "www.javascript.com/",
     category: "Language"
-  }, {
+  },
+  {
     name: "Bulma",
     description: "CSS Framework",
     url: "bulma.io",
     category: "Library"
-  }, {
+  },
+  {
     name: "HTML5",
     description: "Good for gaming",
     url: "html5.com/",
@@ -60,4 +65,5 @@ exports.seed = function(knex, Promise) {
   },
   ]);
 });
-};
+}
+}
