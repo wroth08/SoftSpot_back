@@ -4,23 +4,13 @@ exports.seed = function(knex, Promise) {
     return knex('review').insert([
       {
         title: "I love Atom.",
-<<<<<<< HEAD
         body: "Prior to using Atom, I was a heavy Sublime Text user. I have been using Atom as my everyday text editor for about 3-months. What I truly love about Atom is that you can literally make it whatever you want. If you want IDE features, easy, just install a package. Want to spawn terminal sessions and servers from within Atom? There is packages for that too.There are plugins and themes for just about anything.",
-=======
-        body: "Prior to using Atom, I was a heavy Sublime Text user.
-        I 've been using Atom as my everyday text editor for about 3-months. What I truly love about Atom is that you can literally make it whatever you want.
-        If you want IDE features, easy, just install a package. Want to spawn terminal sessions and servers from within Atom? There' s packages for that too.There are plugins / themes for just about anything.",
->>>>>>> 373fa9fcb0602e22fc36a3bfffc111354c306213
         rating: 5,
         username_id: 1,
         tech_id: 1
       }, {
         title: "VS Code was ok.",
-<<<<<<< HEAD
         body: "This is a very good editor for code/general purpose, and has (almost) totally replaced notepad++/sublimeText/Atom for me. It feels lighter than Atom, while being easily extended anyway, is way faster to configure, and have quite good autocomplete out of the box. It also have a nice integrated debug tool, which is always nice to have, and is always evolving and listening to user's requests. It is known for its great typescript support, but I mainly used it for Python, Java, and other langages (not as much as these two), and it did not disappoint me. There are still a few things that are not great. First of all, it's still heavy compared to \"native\" code editor (being based on electron, it's natural). It does not support opening large files, as opposed to sublime text or another big log explorer. Also, it is currently not possible (although planned) to open more than one project per window, which is sometime problematic when you're used to switching projects ",
-=======
-        body: "This is a very good editor for code/general purpose, and has (almost) totally replaced notepad++/sublimeText/Atom for me. It feels lighter than Atom, while being easily extended anyway, is way faster to configure, and have quite good autocomplete out of the box. It also have a nice integrated debug tool, which is always nice to have, and is always evolving and listening to user's requests. It is known for its great typescript support, but I mainly used it for Python, Java, and other langages (not as much as these two), and it did not disappoint me. There are still a few things that are not great. First of all, it's still heavy compared to "native" code editor (being based on electron, it's natural). It does not support opening large files, as opposed to sublime text or another big log explorer. Also, it is currently not possible (although planned) to open more than one project per window, which is sometime problematic when you're used to switching projects (there is however a shortcut to rapidly change project, but that still requires to change your habits)",
->>>>>>> 373fa9fcb0602e22fc36a3bfffc111354c306213
         rating: 3,
         username_id: 2,
         tech_id: 2
@@ -59,12 +49,7 @@ exports.seed = function(knex, Promise) {
       },
       {
         title: "Bulma. The CSS Framework that doesn't waste your time.",
-<<<<<<< HEAD
         body: "The hours I wasted using Materialize and Bootstrap are 10X or more compared to the amount I've used with Bulma. 100% recommend Bulma as a CSS Framework.",
-=======
-        body: "The hours I wasted using Materialize and Bootstrap are 10X or more compared to the amount I've used with Bulma.
-        100% recommend Bulma as a CSS Framework.",
->>>>>>> 373fa9fcb0602e22fc36a3bfffc111354c306213
         rating: 5,
         username_id: 3,
         tech_id: 5
